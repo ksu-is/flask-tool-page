@@ -7,7 +7,7 @@ A small Flask web application that provides basic tools such as:
 
 ## Roadmap
 
-- [x] Define project idea
+- [x] Define project idea  
 - [ ] Create tool HTML pages
 - [ ] Set up Flask app
 - [ ] Implement calculator
