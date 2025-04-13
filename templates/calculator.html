@@ -1,41 +1,64 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Flask Calculator</title>
-    <link rel="stylesheet" href={{url_for('static',filename='main.css')
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flask Tool Suite - Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
 
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="/">🏠 Home</a> |
+    <a href="/convert">🌡️ Temperature Converter</a> |
+    <a href="/grades">📊 Grade Tracker</a>
+  </nav>
 
+  <!-- Calculator Section -->
+  <section class="calculator">
+    <h1>🧮 Simple Calculator Tool</h1>
 
-    }}>
-  </head>
+    <form action="/calculate" method="POST">
+      <label for="number_one">First Number</label>
+      <input
+        type="number"
+        name="number_one"
+        id="number_one"
+        placeholder="Enter first number"
+        required
+      />
 
-  <body>
-    <section class="calculator">
-      <h1>Flask Calculator App</h1>
+      <label for="number_two">Second Number</label>
+      <input
+        type="number"
+        name="number_two"
+        id="number_two"
+        placeholder="Enter second number"
+        required
+      />
 
-      <form action="/calculate" method="POST">
-        <label for="Number One">First Number</label>
-        <input type="number" placeholder="First Number" name="number_one" />
+      <label for="operation">Operation</label>
+      <select name="operation" id="operation">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+      </select>
 
-        <label for="Number Two">Second Number</label>
-        <input type="number" placeholder="Second Number" name="number_two" />
+      <input type="submit" value="Calculate" class="btn" />
+    </form>
 
-        <label for="Operation">Operation</label>
-        <select name="operation">
-          <option value="add">Add</option>
-          <option value="subtract">Subtract</option>
-          <option value="multiply">Multiply</option>
-          <option value="divide">Divide</option>
-        </select>
+    {% if result is defined %}
+      <div class="result-box">
+        <h3>The result is: <strong>{{ result }}</strong></h3>
+      </div>
+    {% endif %}
+  </section>
 
-        <input type="submit" value="Calculate" id="calc_btn" class="btn" />
-
-        <h3>The result is: {{ result }}</h3>
-      </form>
-    </section>
-
-    <footer>
-      © 2021 <a href="https://github.com/UltiRequiem">Eliaz Bobadilla</a>
-    </footer>
-  </body>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Flask Tool Suite — Team Alpha</p>
+  </footer>
+</body>
 </html>
