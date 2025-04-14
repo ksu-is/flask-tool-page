@@ -18,9 +18,8 @@ Flask Tool Page, a simple, web-based toolkit that brings together a calculator, 
 - [ ] Use layout template for consistency
 - [ ] Add input validation and error handling
 - [ ] Implement temp converter from temperature_converter
-- [ ] Add option for kelvin
+- [ ] Add option for Kelvin degrees
 - [ ] Personalize interface 
-- [ ] Move into reusable layout
 - [ ] Implement Grade-Calculator-by-Flask
 - [ ] Bese calculation on current App Dev Class grading
 - [ ] Calculate average and assign letter grade
@@ -29,11 +28,7 @@ Flask Tool Page, a simple, web-based toolkit that brings together a calculator, 
 
 ### Overall
 
-- [ ] Create a homepage (index.html) linking all tools
-- [ ] Build a `layout.html` base for all tools to extend
-- [ ] Track all changes with clear Git commit messages
 - [ ] Document known issues or future improvements
-- [ ] Write simple unit tests or manual test cases
 - [ ] Add screenshots or UI samples to README
 
 ---
