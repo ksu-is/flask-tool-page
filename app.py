@@ -27,7 +27,10 @@ def calculate():
         return render_template("calculator.html", result=result)
 
     elif operation == "divide":
-        result = float(number_one) / float(number_two)
+        if float(number_two) == 0:
+            result = "Error: Cannot divide by zero"
+        else:
+            result = float(number_one) / float(number_two)
         return render_template("calculator.html", result=result)
 
     else:
