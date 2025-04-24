@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flask Tool Site - Temperature Converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="/">🏠 Home</a> |
+    <a href="/convert">🌡️ Temperature Converter</a> |
+    <a href="/grades">📊 Grade Tracker</a>
+  </nav>
+
+  <!-- Temperature Converter Section -->
+  <section class="calculator">
+    <h1>🌡️ Fahrenheit to Celsius Converter</h1>
+
+    <form method="POST" action="/convert">
+      {{ form.hidden_tag() }}
+
+      <label for="fahrenheit">Enter Fahrenheit</label>
+      {{ form.fahrenheit(id="fahrenheit", placeholder="Enter Fahrenheit") }}
+
+      {{ form.submit(class="btn") }}
+    </form>
+
+    {% if f and c %}
+      <div class="result-box">
+        <h3>The result is: <strong>{{ f }}°F = {{ c }}°C</strong></h3>
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Flask Tool Site — Luis Lopez</p>
+  </footer>
+</body>
+</html>
