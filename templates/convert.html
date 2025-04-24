@@ -15,22 +15,34 @@
     <a href="/grades">📊 Grade Tracker</a>
   </nav>
 
-  <!-- Temperature Converter Section -->
+  <!-- Converter Section -->
   <section class="calculator">
-    <h1>🌡️ Fahrenheit to Celsius Converter</h1>
+    <h1>🌡️ Universal Temperature Converter</h1>
 
-    <form method="POST" action="/convert">
-      {{ form.hidden_tag() }}
+    <form action="/convert" method="POST">
+      <label for="temp_value">Enter Temperature:</label>
+      <input type="number" name="temp_value" id="temp_value" placeholder="Enter value" step="any" required />
 
-      <label for="fahrenheit">Enter Fahrenheit</label>
-      {{ form.fahrenheit(id="fahrenheit", placeholder="Enter Fahrenheit") }}
+      <label for="from_scale">From:</label>
+      <select name="from_scale" id="from_scale" required>
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="kelvin">Kelvin</option>
+      </select>
 
-      {{ form.submit(class="btn") }}
+      <label for="to_scale">To:</label>
+      <select name="to_scale" id="to_scale" required>
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="kelvin">Kelvin</option>
+      </select>
+
+      <input type="submit" value="Convert" class="btn" />
     </form>
 
-    {% if f and c %}
+    {% if result is defined %}
       <div class="result-box">
-        <h3>The result is: <strong>{{ f }}°F = {{ c }}°C</strong></h3>
+        <h3>The result is: <strong>{{ original }}°{{ from|capitalize }} = {{ result }}°{{ to|capitalize }}</strong></h3>
       </div>
     {% endif %}
   </section>
