@@ -42,7 +42,7 @@
 
     {% if result is defined %}
       <div class="result-box">
-        <h3>The result is: <strong>{{ original }}°{{ from|capitalize }} = {{ result }}°{{ to|capitalize }}</strong></h3>
+        <h3>The result is: <strong>{{ original }}°{{ from_scale|capitalize }} = {{ result }}°{{ to_scale|capitalize }}</strong></h3>
       </div>
     {% endif %}
   </section>
