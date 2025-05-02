@@ -72,9 +72,11 @@ def convert():
 
     
 
-    return render_template('convert.html', table=table, form=form,
-                           f=session.get('fa', ''),
-                           c=session.get('celsius', ''))
+    return render_template('convert.html',
+                       result=result_temp,
+                       original=original_temp,
+                       from_scale=from_temp,
+                       to_scale=to_temp)
 
 @app.errorhandler(404)
 def not_found(error):
