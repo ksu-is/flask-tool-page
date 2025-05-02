@@ -40,23 +40,37 @@ def calculate():
 
 @app.route('/convert', methods=['GET', 'POST'])
 def convert():
-    """formula C = 5/9 * (F -32) Fahrenheit to Celsius"""
-    table = []
-    for f in range(30, 101, 2):
-        c = 5 / 9 * (f - 32)
-        c = round(c, 1)
-        table.append((f, c))
 
-    form = ConvertForm()
+    result_temp = None
+    original_temp = ''
+    from_temp = ''
+    to_temp = ''
 
-    if form.validate_on_submit():
-        f = form.fahrenheit.data
-        c = 5 / 9 * (f - 32)
-        c = round(c, 1)
-        session['fa'] = f
-        session['celsius'] = c
-        form.fahrenheit.data = ''
-        return redirect(url_for('convert'))
+    if request.method == 'POST':
+        value = float(request.form['temp_value'])
+        from_temp = request.form['from_scale']
+        to_temp = request.form['to_scale']
+        original_temp = value
+
+        if from_temp == to_temp:
+            result_temp = value
+        elif from_temp == 'celsius':
+            if to_temp == 'fahrenheit':
+                result_temp = value * 9 / 5 + 32
+            elif to_temp == 'kelvin':
+                result_temp = value + 273.15
+        elif from_temp == 'fahrenheit':
+            if to_temp == 'celsius':
+                result_temp = (value - 32) * 5 / 9
+            elif to_temp == 'kelvin':
+                result_temp = (value - 32) * 5 / 9 + 273.15
+        elif from_temp == 'kelvin':
+            if to_temp == 'celsius':
+                result_temp = value - 273.15
+            elif to_temp == 'fahrenheit':
+                result_temp = (value - 273.15) * 9 / 5 + 32
+
+    
 
     return render_template('convert.html', table=table, form=form,
                            f=session.get('fa', ''),
