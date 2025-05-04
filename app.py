@@ -16,6 +16,7 @@ class ConvertForm(FlaskForm):
 def main():
     return render_template("calculator.html")
 
+#calculator backend
 @app.route("/calculate", methods=["POST"])
 def calculate():
     number_one = request.form["number_one"]
@@ -38,6 +39,7 @@ def calculate():
 
     return render_template("calculator.html", result=result)
 
+#temp convertor backend
 @app.route('/convert', methods=['GET', 'POST'])
 def convert():
 
