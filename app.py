@@ -49,7 +49,7 @@ def convert():
     to_temp = ''
 
     if request.method == 'POST':
-        value = float(request.form['temp_value'])
+        value = float(request.form['tem_value'])
         from_temp = request.form['from_scale']
         to_temp = request.form['to_scale']
         original_temp = value
